@@ -1,0 +1,75 @@
+setwd ('Directory')
+dataname = read.table('table.txt') // read data.
+
+attach(dataname)		//attached whole dataset
+				to user variable names that
+                                are part of dataset
+variable = dataname[,columnbr]  //attached variable name
+table(variablename)              // counts and displays variablename only
+table(variablename[min:max])
+counts = table(variablename)
+
+relfreq = counts/sum(counts)
+
+
+DESCRIPTIVE graphs:
+sort(dataname)
+plot(dataname)
+plot(sort(dataname)
+plot(sort(dataname, horizontal=TRUE, xlab='xlabel', ylab='ylabel', ylim=c(0,5))
+
+boxplot(dataname, ylab='ylabel', ylim=c(min,max))
+boxplot(variablename, range=0, ylab='ylabel') // range=0 include outliers
+		
+hist(dataname, breaks=5, xlab='xlabel', main='title his') //breaks = bins
+
+
+
+CATEGORICAL GRAPHS
+barplot(counts, col=rainbow(6), names.arg=region_names, 
+        main="World Regions:Bar chart")
+
+barplot(relfreq, col=rainbow(6), names.arg=region_names, 
+        main="World Regions:Bar chart")
+
+
+pie(counts, col=rainbow(6), label=region_names, 
+        main="World Regions:Bar chart")
+
+-------------------------------------
+Calculation
+length(variablename)
+
+summary(variablename)
+summary(variablename, digits='accurate')
+
+
+
+
+Descriptive-------------------------
+mean(variablename)
+mean(variablename, trim=0.1/0.08)
+range(variablename)
+max(variablename)
+min(variablename)
+IQR(variablename)
+var(variablename)
+sd(variablename)
+sqrt(var(variablename)) // SD
+round(sd(variablename), decimals)
+
+ASSIGNMENT---------------------------
+sum = sum(variablename)
+n = length(variablename)
+sum/n
+
+Newvar = sort(oldvar)            //sort first before trim
+NewvarTrim = NewvarTrim[min:max]
+
+origData = c(mean,median,range, iqr, sd) // C = combine
+trimData = c(meanTrim,medianTrim,rangeTrim, iqrTrim, sdTrim)
+
+stats = cbind(origData, trimData)
+rownames(stats) = c( 'median','mean', 'range', 'IQR', 'SD')
+
+

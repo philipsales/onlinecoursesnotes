@@ -1,0 +1,17 @@
+Week 5 - Introduction to confidence Intervals
+
+Week 5 - Confidence intervals for Proportions
+
+p (results/instances)
+    1000 flips, 576 red caps
+    p (576/1000) = 57.6%
+
+Week 5 - Sample Size for Estimating a Proportion
+
+   Response biased. 
+   Improperly worded
+Week 6 - Confidence interval for Means
+   Use t-distribution
+     = if calculating for  TOTAL / THEORETICAL MEAN 
+   Use Normal distribution
+    = if calculating for REAL / SAMPLE MEAN
