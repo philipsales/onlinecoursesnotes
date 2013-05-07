@@ -1,0 +1,135 @@
+
+
+Git diff
+git diff --staged	
+
+>> UNSTAGING
+
+git reset HEAD license.txt
+  HEAD = last commit
+
+git checkout license.txt
+  = blow away
+
+>> COMMIT
+
+git commit -a -m "comment"
+  doesnt track new file ( untracked )
+
+== NEVER DO THIS AFTER PUSH
+
+git reset --soft HEAD^
+  undo last commit put changes into staging
+  reset into staging
+
+git commit --amend -m "New commit message"
+   - Amend - add to last commit
+   - override previous commit messge
+
+git reset --hard HEAD^
+    - undo last commit and all changes 
+
+git reset --hard HEAD^^
+    - undo last 2 commit
+
+>> PUSH
+
+git push -u origin master
+   
+>> BRANCHING OUT
+
+git branch cat
+    - create cat branch
+git branch
+    - to know current branch
+git checkout cat
+    - switch to branch cat
+
+>>> MERGING
+
+>> FAST-FORWARD MERGING
+1st step:
+git checkout master
+    - logout cat branch
+    - login as master branch
+git merge cat
+    - will tell fast-forward merge
+git branch -d cat
+    - delete branch 
+
+>> NON-FAST-FORWARD
+  git checkout -b admin
+    - creates branch  
+    -b = checksout automatic
+
+>>>> REMOTE BRANCHING
+    - if code takes more than a day
+    git checkout -b shopping_cart
+    git push origin shopping_cart
+    - links local branch to remote branching for tracking 
+
+
+>>>BRANCHING
+git checkout -b branchname
+  - create local branch
+git push origin branchname
+  - link local branch to remote branch 
+git branch -r 
+  - list of all remote branches
+
+>>>REMOTE SHOW
+git remote show origin
+  - remote, local branches ( pull, push)
+
+git push remoteRepoName :branchname
+    e.g git push origin pjversion
+  - delete remote branch
+
+git branch -d shopping_cart
+  - delete local branch
+
+>>>TAGGING
+   - for release versioning
+git tag
+  - list all tag
+git checkout version
+  - checkout code at that version
+git tag -a v0.0.3 -m "version 0.0.3"
+   - create new tag
+git push --tags
+   - push tag
+
+>>>REBASING
+git fetch
+   - pulls down any changes but doesnt merge
+git rebase
+   - moves the difference between MASTER and localrepo(origin/master) to temporary area
+   - Run all origin/master commits 
+   - Run all commits in teh temporary area ( difference of the MASTER and
+     orign/master ) on top of the origin/master commits 
+
+>>>LOCAL BRANCH REBASING
+ 1. git checkout admin
+    - switch to admin branch
+ 2. git fetch
+    - same git pull but DOES not MERGE
+ 3. git add . 
+ 4  git commit
+ 2. git rebase master
+    - pull copy of master below admin branch
+      commits
+ 3. git checkout master
+    - switch to master
+ 4. git merge admin
+    - fast-forward merge
+
+>>>REBASING CONFLICT
+git rebase --continue 
+git rebase --skip
+
+>>>GIT LOG
+git log --oneline -stat
+git log --oneline -patch
+
+
+
